@@ -11,6 +11,7 @@
   --secondary-text-color: #577592;
   --accent-color: #2294ed;
   --accent-color-dark: #1d69a3;
+  --bg-light: #f3faff;
 }
 
 body {
@@ -43,130 +44,143 @@ ul {
   overflow: hidden;
 }
 
+/* 🔹 Navigation Bar */
 nav {
-  background-color: #f3faff;
+  background-color: var(--bg-light);
   box-shadow: 0 0 4px #79a8d1;
   position: fixed;
   top: 0;
   z-index: 99;
   left: 0;
   right: 0;
+  padding: 10px 20px;
 }
 
 .main-nav {
+  display: flex;
+  align-items: center;
   justify-content: space-between;
-  padding-block: 8px;
+  position: relative;
 }
 
-img {
-  height: 70px;
-  width: 130px;
-  border-radius: 30px;
-  animation: borderRadiusColorChange 11s  ease-in-out;
-
+/* 🔹 Logo */
+.logo img {
+  height: 60px;
+  width: 120px;
+  border-radius: 10px;
 }
 
-
-/* Keyframes for border radius and color change */
-@keyframes borderRadiusColorChange {
-  0% {
-      border-radius: 0;
-      border-color: red;
-  }
-  25% {
-      border-radius: 25%;
-      border-color: orange;
-  }
-  50% {
-      border-radius: 50%;
-      border-color: yellow;
-  }
-  75% {
-      border-radius: 75%;
-      border-color: green;
-  }
-  100% {
-      border-radius: 0%;
-      border-color: blue;
-  }
-}
-
-
-
-img:hover {
-  box-shadow: 1px 1px 8px #4c08eb;
+.logo img:hover {
+  box-shadow: 1px 1px 2px #e3e2e5;
   background-color: #b9d7e7;
-  transform: translateY(5px);
-  transition: 0.5s ease-in-out;
+  transform: translateY(3px);
+  transition: 0.3s ease-in-out;
+}
+
+/* 🔹 Centered Navigation Links (Desktop) */
+.nav-links {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 .nav-links ul {
+  display: flex;
   gap: 30px;
+  margin-top: -43px;
 }
 
 .nav-item {
-  color: rgb(9, 156, 230);
+  color: var(--accent-color);
   cursor: pointer;
- 
+  font-size: 16px;
 }
 
 .nav-item:hover {
-  /* color: #84c0ee; */
-  background-color:rgb(180, 213, 246);
-    color: black;
-     transition: 0.7s ease-in-out;
-    border-radius: 25px;
-    transform: translateY(3px);
+  background-color: rgb(180, 213, 246);
+  color: black;
+  transition: 0.3s ease-in-out;
+  border-radius: 20px;
+  padding: 4px 10px;
 }
+
 .nav-item.active {
   background-color: rgb(143, 162, 215);
-  border-radius: 25px;
+  border-radius: 20px;
   color: black;
 }
 
+/* 🔹 Right-side items (Search, Select, Menu) */
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* 🔹 Search Bar */
 .search-bar {
-  height: 32px;
-  gap: 8px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
 }
 
 .news-input {
-  width: 200px;
-  height: 100%;
-  padding-inline: 12px;
+  width: 180px;
+  padding: 6px 10px;
   border-radius: 40px;
-  border: 2px solid #2993f0;
+  border: 2px solid var(--accent-color);
   font-family: "Roboto", sans-serif;
-  transition: 1s ease-in-out;
+  transition: 0.3s ease-in-out;
 }
 
-.news-input:hover{
-  background-color: #0d1216e8;
-  color: white;
-  transform: translateY(5px);
+.news-input:hover {
+  background-color: #e6f2ff;
 }
 
+/* 🔹 Search Button */
 .search-button {
-    background-color: var(--accent-color);
-    color: white;
-    padding: 8px 24px;
-    border: none;
-    border-radius: 80px;
-    cursor: pointer;
-    font-family: "Roboto", sans-serif;
-    transition: 1s ease-in-out;
+  background-color: var(--accent-color);
+  color: white;
+  padding: 6px 14px;
+  border: none;
+  border-radius: 40px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: 0.3s ease-in-out;
 }
 
 .search-button:hover {
-    background-color:rgb(134, 163, 177);
-    color: black;
-    transform: translateY(3px);
+  background-color: var(--accent-color-dark);
+  color: white;
 }
 
-main {
-  padding-block: 20px;
-  margin-top: 80px;
+/* 🔹 News Type Button */
+.news-type-button {
+  background-color: var(--accent-color);
+  color: white;
+  padding: 6px 10px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: 0.3s ease-in-out;
 }
 
+.news-type-button:hover {
+  background-color: var(--accent-color-dark);
+}
+
+/* 🔹 Menu Button */
+.nav-toggle {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 28px;
+  cursor: pointer;
+  color: var(--accent-color);
+}
+
+/* 🔹 Cards Layout */
 .cards-container {
   justify-content: space-between;
   flex-wrap: wrap;
@@ -182,11 +196,10 @@ main {
   cursor: pointer;
   background-color: #fff;
   overflow: hidden;
-  transition: all 0.3s ease;
 }
 
 .card:hover {
-  box-shadow: 1px 1px 8px #4c08eb;
+  box-shadow: 2px 2px 5px #4b87d4;
   background-color: #b9d7e7;
   transform: translateY(5px);
   transition: 0.5s ease-in-out;
@@ -201,6 +214,110 @@ main {
 .card-content {
   padding: 12px;
 }
+
 .news-source {
   margin-block: 12px;
+}
+
+/* 🔹 Responsive Design */
+@media (max-width: 768px) {
+  .container {
+    max-width: 100%;
+    padding: 0 10px;
+  }
+
+  /* 🔹 Mobile Navigation */
+  .main-nav {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .logo img {
+    height: 50px;
+    width: 100px;
+    margin-left: -13px;
+  }
+
+  .nav-toggle {
+    display: block;
+  }
+
+  .nav-right {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .news-input {
+    width: 120px;
+    display: none;
+  }
+
+  /* 🔹 Hide menu by default in mobile */
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 60px;
+    right: 0;
+    background: white;
+    width: 100%;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease-in-out;
+    left: unset;
+    transform: unset;
+  }
+
+  .nav-links ul {
+    flex-direction: column;
+    padding: 40px 0;
+    gap: 12px;
+  }
+
+  .nav-links.active {
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* 🔹 Adjust buttons */
+  .search-bar {
+    display: none;
+    width: 100%;
+    justify-content: center;
+  }
+
+  .news-input {
+    display: none;
+    width: 100%;
+    margin-bottom: 1px;
+  }
+
+  .search-button,
+  .news-type-button {
+    display: none;
+  }
+}
+
+@media (max-width: 600px) {
+  .card {
+    width: 100%;
+    min-height: auto;
+  }
+
+  .card-header img {
+    height: auto;
+  }
+
+  .card-content {
+    padding: 8px;
+  }
+
+  .news-input {
+   display: none;
+  }
+
+  .search-button,
+  .news-type-button {
+    display: none;
+  }
 }

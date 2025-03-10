@@ -7,25 +7,35 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<nav>
-  <div class="main-nav container flex">
-    <a href="#" onclick="reload()" class="Company logo">
+  <nav>
+    <div class="main-nav container">
+      <!-- Logo on the left -->
+      <a href="#" onclick="reload()" class="logo">
         <img src="assets/Infi news (1).jpg" alt="Company logo">
-    </a>
-    <div class="nav-links">
-    <ul class="flex">
-         <li class="hover-link nav-item" id="sports" onclick="onNavItemClick('sports')">Sports</li>
-         <li class="hover-link nav-item" id="Politics" onclick="onNavItemClick('Politics')">Politics</li>
-         <li class="hover-link nav-item" id="Finance" onclick="onNavItemClick('Finance')">Finance</li>
-         <li class="hover-link nav-item" id="Education" onclick="onNavItemClick('Education')">Education</li>
-    </ul>
+      </a>
+  
+      <!-- Right-side elements -->
+      <div class="nav-right">
+        <div class="search-bar">
+          <input id="search-text" type="text" class="news-input" placeholder="Search">
+          <button id="search-button" class="search-button">🔍</button>
+        </div>
+        <button id="news-type-button" class="news-type-button">Select</button>
+        <button class="nav-toggle" id="nav-toggle">☰</button>
+      </div>
     </div>
-    <div class="search-bar flex">
-        <input id="search-text" type="text" class="news-input" placeholder="E.g. Science">
-        <button id="search-button" class="search-button">Search</button>
+  
+    <!-- Navigation links -->
+    <div class="nav-links" id="nav-links">
+      <ul>
+        <li class="nav-item" id="sports" onclick="onNavItemClick('sports')">Sports</li>
+        <li class="nav-item" id="Politics" onclick="onNavItemClick('Politics')">Politics</li>
+        <li class="nav-item" id="Finance" onclick="onNavItemClick('Finance')">Finance</li>
+        <li class="nav-item" id="Education" onclick="onNavItemClick('Education')">Education</li>
+      </ul>
     </div>
-  </div>
-</nav>
+  </nav>
+  
 
 <main>
   <div class="cards-container container flex" id="cards-container">
